@@ -36,8 +36,18 @@ export async function POST(request: NextRequest) {
             )
         }
 
-        // Parse and return the response from n8n
-        const data = await response.json()
+        // Parse the response from n8n (handle both JSON and text)
+        const contentType = response.headers.get('content-type')
+        let data
+
+        if (contentType && contentType.includes('application/json')) {
+            // Response is JSON
+            data = await response.json()
+        } else {
+            // Response is plain text or other format
+            const textData = await response.text()
+            data = { message: textData }
+        }
 
         return NextResponse.json({
             success: true,
