@@ -140,12 +140,9 @@ export default function FormComponent() {
                             </>
                         ) : (
                             <>
-                                <div>{response.message}</div>
-                                {response.data && (
-                                    <pre style={{ marginTop: '1rem', fontSize: '0.875rem', opacity: 0.8 }}>
-                                        {JSON.stringify(response.data, null, 2)}
-                                    </pre>
-                                )}
+                                <div>
+                                    {response.data?.message || response.message}
+                                </div>
                             </>
                         )}
                     </div>
