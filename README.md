@@ -1,4 +1,4 @@
-# n8n Form Integration
+# (AI GENERATED) n8n Form Integration
 
 A modern, beautiful Next.js application with n8n workflow integration, featuring parallax scrolling effects, animated hero section, and professional footer.
 
