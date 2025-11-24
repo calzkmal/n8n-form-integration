@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server'
 
-const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || ''
+// Dedicated health check endpoint for workflow status monitoring
+const HEALTH_CHECK_URL = 'https://n8n.senja.co.uk/webhook/7a578942-e849-4335-a0a7-adf112c48bb7'
 const N8N_API_KEY = process.env.N8N_API_KEY || ''
 
 export async function GET() {
     try {
-        // Send a test ping to the webhook with minimal data
-        const response = await fetch(N8N_WEBHOOK_URL, {
+        // Send a test ping to the health check endpoint
+        const response = await fetch(HEALTH_CHECK_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
