@@ -5,6 +5,8 @@ A modern, responsive dashboard for managing n8n workflows and automations. Built
 ![Next.js](https://img.shields.io/badge/Next.js-15.0.3-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)
+![Claude](https://img.shields.io/badge/Claude-Sonnet_4.5-8B5CF6?style=for-the-badge&logo=anthropic)
+![Gemini](https://img.shields.io/badge/Gemini-3.0_Pro-4285F4?style=for-the-badge&logo=google)
 
 ## ✨ Features
 
@@ -45,12 +47,12 @@ cd n8n-form
 npm install
 ```
 
-3. Create `.env.local` file:
+3. Create `.env` file:
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
-4. Update `.env.local` with your n8n credentials:
+4. Update `.env` with your n8n credentials:
 ```env
 N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/form-submission-id
 N8N_API_KEY=your-api-key
@@ -69,6 +71,7 @@ npm run dev
 
 - **Framework**: Next.js 15.0.3 with App Router
 - **Language**: TypeScript
+- **AI Agents**: Claude Sonnet 4.5, Gemini 3.0 Pro
 - **Styling**: Vanilla CSS with custom design system
 - **Animations**: CSS animations with Intersection Observer API
 - **Integration**: n8n webhook API
