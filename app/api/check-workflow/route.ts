@@ -1,32 +1,34 @@
 import { NextResponse } from 'next/server'
 
 // Dedicated health check endpoint for workflow status monitoring
-const HEALTH_CHECK_URL = 'https://n8n.senja.co.uk/webhook/7a578942-e849-4335-a0a7-adf112c48bb7'
+const N8N_HEALTH_CHECK_URL = process.env.N8N_HEALTH_CHECK_URL || ''
 const N8N_API_KEY = process.env.N8N_API_KEY || ''
 
 export async function GET() {
     try {
-        // Send a test ping to the health check endpoint
-        const response = await fetch(HEALTH_CHECK_URL, {
-            method: 'POST',
+        // Send a GET request to the health check endpoint
+        const response = await fetch(N8N_HEALTH_CHECK_URL, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'key': N8N_API_KEY,
             },
-            body: JSON.stringify({
-                test: true,
-                ping: 'workflow-status-check',
-                timestamp: new Date().toISOString()
-            }),
         })
 
         // Check if the workflow is active based on response
-        const isActive = response.ok
+        let isActive = false
+        let responseText = ''
+
+        if (response.ok) {
+            responseText = await response.text()
+            isActive = responseText.trim() === 'Active'
+        }
 
         return NextResponse.json({
             isActive,
             status: response.status,
             statusText: response.statusText,
+            responseText,
             timestamp: new Date().toISOString()
         })
     } catch (error) {

@@ -11,8 +11,8 @@ export default function Home() {
     const checkWorkflowStatus = async () => {
         try {
             const response = await fetch('/api/check-workflow')
-            const data = await response.json()
-            setIsWorkflowActive(data.isActive)
+            const statusData = await response.json()
+            setIsWorkflowActive(statusData.isActive)
         } catch (error) {
             console.error('Failed to check workflow status:', error)
             setIsWorkflowActive(false)
@@ -23,11 +23,8 @@ export default function Home() {
         // Set year on client side to avoid hydration mismatch
         setYear(new Date().getFullYear().toString())
 
-        // Check workflow status immediately on mount
+        // Check workflow status once on mount
         checkWorkflowStatus()
-
-        // Set up interval to check workflow status every 1 minute (60000ms)
-        const statusCheckInterval = setInterval(checkWorkflowStatus, 60000)
 
         // Parallax scroll effect
         const handleScroll = () => {
@@ -61,7 +58,6 @@ export default function Home() {
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)
-            clearInterval(statusCheckInterval)
             observer.disconnect()
         }
     }, [])
@@ -84,7 +80,7 @@ export default function Home() {
                             {isWorkflowActive === null
                                 ? 'Checking workflow status...'
                                 : isWorkflowActive
-                                    ? 'Connected to n8n Workflow'
+                                    ? 'Workflow Active'
                                     : 'Workflow Inactive'}
                         </span>
                     </div>
