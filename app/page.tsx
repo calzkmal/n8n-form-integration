@@ -57,15 +57,7 @@ export default function Home() {
                             Select a tool below to get started.
                         </p>
 
-                        <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                            gap: '2rem',
-                            marginTop: '4rem',
-                            maxWidth: '900px',
-                            marginLeft: 'auto',
-                            marginRight: 'auto'
-                        }}>
+                        <div className="hero-grid">
                             {/* Form Submission Card */}
                             <Link href="/form-submission" style={{ textDecoration: 'none' }}>
                                 <div className="glass-card" style={{

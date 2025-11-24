@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 
 export default function Footer() {
     const [year, setYear] = useState('')
@@ -12,18 +11,11 @@ export default function Footer() {
 
     return (
         <footer className="footer" style={{ marginTop: 'auto' }}>
-            <div className="footer-content" style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '2rem',
-                padding: '2rem 0',
-                borderBottom: '1px solid var(--border-subtle)',
-                marginBottom: '1.5rem'
-            }}>
+            <div className="footer-content footer-grid">
                 {/* Brand Section */}
                 <div className="footer-section">
                     <div className="footer-logo" style={{ marginBottom: '1rem' }}>Sentomate</div>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.8' }}>
                         Sentomate is a modern, responsive dashboard for managing n8n workflows and automations.
                         Built on Next.js using Claude, Gemini, and styled with vanilla CSS.
                     </p>
