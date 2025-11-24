@@ -72,7 +72,7 @@ export default function FormPage() {
 
                         <p className="hero-subtitle">
                             Simple form to test data input through webhook, that allows dashboard integration.
-                            Real-time responses (Automated using AI).
+                            Provides real-time responses.
                         </p>
                     </div>
                 </section>

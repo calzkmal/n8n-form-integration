@@ -49,11 +49,11 @@ export default function Home() {
                         </div>
 
                         <h1 className="hero-title">
-                            Sentomate
+                            Where the magic happens ✨
                         </h1>
 
                         <p className="hero-subtitle">
-                            Manage your workflows and automations from a single place.
+                            Sentomate is a modern, responsive dashboard for managing n8n workflows and automations.
                             Select a tool below to get started.
                         </p>
 

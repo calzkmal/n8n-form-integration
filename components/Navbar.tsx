@@ -53,7 +53,7 @@ export default function Navbar() {
                             transition: 'color var(--transition-base)',
                             padding: '0.5rem 1rem',
                             borderRadius: 'var(--radius-md)',
-                            background: pathname === '/form' ? 'hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1)' : 'transparent',
+                            background: pathname === '/form-submission' ? 'hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1)' : 'transparent',
                         }}
                     >
                         Form Submission
