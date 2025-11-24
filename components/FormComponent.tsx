@@ -4,7 +4,6 @@ import { useState, FormEvent } from 'react'
 
 interface FormData {
     name: string
-    email: string
     message: string
 }
 
@@ -19,7 +18,6 @@ interface ResponseData {
 export default function FormComponent() {
     const [formData, setFormData] = useState<FormData>({
         name: '',
-        email: '',
         message: '',
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -44,7 +42,7 @@ export default function FormComponent() {
 
             // Reset form on success
             if (data.success) {
-                setFormData({ name: '', email: '', message: '' })
+                setFormData({ name: '', message: '' })
             }
         } catch (error) {
             setResponse({
@@ -78,23 +76,6 @@ export default function FormComponent() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Enter your name"
-                        required
-                        disabled={isSubmitting}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="email" className="form-label">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="form-input"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
                         required
                         disabled={isSubmitting}
                     />

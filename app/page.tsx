@@ -90,8 +90,8 @@ export default function Home() {
                     </h1>
 
                     <p className="hero-subtitle">
-                        Send data to your n8n workflow with a beautiful, modern form interface.
-                        Experience real-time responses with stunning visual feedback.
+                        Simple form to test data input through webhook, that allows dashboard integration.
+                        Real-time responses (Automated using AI).
                     </p>
                 </div>
             </section>
