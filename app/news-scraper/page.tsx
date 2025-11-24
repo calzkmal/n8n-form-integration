@@ -12,6 +12,41 @@ export default function NewsScraperPage() {
 
     useEffect(() => {
         setYear(new Date().getFullYear().toString())
+
+        // Parallax scroll effect
+        const handleScroll = () => {
+            const scrolled = window.scrollY
+            const parallaxShapes = document.querySelectorAll('.parallax-shape')
+
+            parallaxShapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5
+                const yPos = -(scrolled * speed)
+                    ; (shape as HTMLElement).style.transform = `translateY(${yPos}px)`
+            })
+        }
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed')
+                }
+            })
+        }, observerOptions)
+
+        const revealElements = document.querySelectorAll('.scroll-reveal')
+        revealElements.forEach(el => observer.observe(el))
+
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+            observer.disconnect()
+        }
     }, [])
 
     return (

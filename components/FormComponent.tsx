@@ -29,7 +29,7 @@ export default function FormComponent() {
         setResponse(null)
 
         try {
-            const res = await fetch('/api/submit', {
+            const res = await fetch('/api/form-submission', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

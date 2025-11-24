@@ -26,6 +26,8 @@ export default function NewsScraperForm() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [response, setResponse] = useState<ResponseData | null>(null)
+    const [isCountryOpen, setIsCountryOpen] = useState(false)
+    const [isCategoryOpen, setIsCategoryOpen] = useState(false)
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -72,24 +74,39 @@ export default function NewsScraperForm() {
                     <label htmlFor="country" className="form-label">
                         Country (2-letter code)
                     </label>
-                    <select
-                        id="country"
-                        name="country"
-                        className="form-input"
-                        value={formData.country}
-                        onChange={handleChange}
-                        disabled={isSubmitting || !!formData.sources}
-                    >
-                        <option value="">Select country (optional)</option>
-                        <option value="us">United States (us)</option>
-                        <option value="gb">United Kingdom (gb)</option>
-                        <option value="ca">Canada (ca)</option>
-                        <option value="au">Australia (au)</option>
-                        <option value="de">Germany (de)</option>
-                        <option value="fr">France (fr)</option>
-                        <option value="jp">Japan (jp)</option>
-                        <option value="in">India (in)</option>
-                    </select>
+                    <div style={{ position: 'relative' }}>
+                        <select
+                            id="country"
+                            name="country"
+                            className="form-input"
+                            value={formData.country}
+                            onChange={handleChange}
+                            onFocus={() => setIsCountryOpen(true)}
+                            onBlur={() => setIsCountryOpen(false)}
+                            disabled={isSubmitting || !!formData.sources}
+                            style={{ paddingRight: '2.5rem' }}
+                        >
+                            <option value="">Select country (optional)</option>
+                            <option value="us">United States (us)</option>
+                            <option value="gb">United Kingdom (gb)</option>
+                            <option value="ca">Canada (ca)</option>
+                            <option value="au">Australia (au)</option>
+                            <option value="de">Germany (de)</option>
+                            <option value="fr">France (fr)</option>
+                            <option value="jp">Japan (jp)</option>
+                            <option value="in">India (in)</option>
+                        </select>
+                        <span style={{
+                            position: 'absolute',
+                            right: '1rem',
+                            top: '50%',
+                            transform: `translateY(-50%) rotate(${isCountryOpen ? '180deg' : '0deg'})`,
+                            transition: 'transform 0.3s ease',
+                            pointerEvents: 'none',
+                            color: 'var(--text-secondary)',
+                            fontSize: '0.875rem'
+                        }}>▼</span>
+                    </div>
                     <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
                         Note: Cannot be used with sources parameter
                     </small>
@@ -99,23 +116,38 @@ export default function NewsScraperForm() {
                     <label htmlFor="category" className="form-label">
                         Category
                     </label>
-                    <select
-                        id="category"
-                        name="category"
-                        className="form-input"
-                        value={formData.category}
-                        onChange={handleChange}
-                        disabled={isSubmitting || !!formData.sources}
-                    >
-                        <option value="">Select category (optional)</option>
-                        <option value="business">Business</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="general">General</option>
-                        <option value="health">Health</option>
-                        <option value="science">Science</option>
-                        <option value="sports">Sports</option>
-                        <option value="technology">Technology</option>
-                    </select>
+                    <div style={{ position: 'relative' }}>
+                        <select
+                            id="category"
+                            name="category"
+                            className="form-input"
+                            value={formData.category}
+                            onChange={handleChange}
+                            onFocus={() => setIsCategoryOpen(true)}
+                            onBlur={() => setIsCategoryOpen(false)}
+                            disabled={isSubmitting || !!formData.sources}
+                            style={{ paddingRight: '2.5rem' }}
+                        >
+                            <option value="">Select category (optional)</option>
+                            <option value="business">Business</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="general">General</option>
+                            <option value="health">Health</option>
+                            <option value="science">Science</option>
+                            <option value="sports">Sports</option>
+                            <option value="technology">Technology</option>
+                        </select>
+                        <span style={{
+                            position: 'absolute',
+                            right: '1rem',
+                            top: '50%',
+                            transform: `translateY(-50%) rotate(${isCategoryOpen ? '180deg' : '0deg'})`,
+                            transition: 'transform 0.3s ease',
+                            pointerEvents: 'none',
+                            color: 'var(--text-secondary)',
+                            fontSize: '0.875rem'
+                        }}>▼</span>
+                    </div>
                     <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
                         Note: Cannot be used with sources parameter
                     </small>

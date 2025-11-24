@@ -158,6 +158,11 @@ h2 {
   outline: none;
 }
 
+select.form-input {
+  appearance: none;
+  background-image: none;
+}
+
 .form-input:focus,
 .form-textarea:focus {
   border-color: var(--primary-400);
@@ -175,7 +180,6 @@ h2 {
   resize: vertical;
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
