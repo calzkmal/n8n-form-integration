@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'n8n Form Integration',
-    description: 'Simple form to send data to n8n workflow',
+    title: 'Sentomate Automation Dashboard',
+    description: 'n8n workflow control dashboard for automating tasks',
 }
 
 export default function RootLayout({
