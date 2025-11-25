@@ -6,7 +6,7 @@ interface NewsScraperFormData {
     country: string
     category: string
     sources: string
-    q: string
+    keywords: string
 }
 
 interface ResponseData {
@@ -22,7 +22,7 @@ export default function NewsScraperForm() {
         country: '',
         category: '',
         sources: '',
-        q: '',
+        keywords: '',
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [response, setResponse] = useState<ResponseData | null>(null)
@@ -48,7 +48,7 @@ export default function NewsScraperForm() {
 
             // Reset form on success
             if (data.success) {
-                setFormData({ country: '', category: '', sources: '', q: '' })
+                setFormData({ country: '', category: '', sources: '', keywords: '' })
             }
         } catch (error) {
             setResponse({
@@ -173,15 +173,15 @@ export default function NewsScraperForm() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="q" className="form-label">
+                    <label htmlFor="keywords" className="form-label">
                         Search Keywords
                     </label>
                     <input
                         type="text"
-                        id="q"
-                        name="q"
+                        id="keywords"
+                        name="keywords"
                         className="form-input"
-                        value={formData.q}
+                        value={formData.keywords}
                         onChange={handleChange}
                         placeholder="Enter keywords or phrase"
                         disabled={isSubmitting}
