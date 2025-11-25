@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
 
                 {/* Hero Section */}
-                <section className="hero-section" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
+                <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
                     <div className="hero-content">
                         <div className="hero-badge">
                             <span className="status-dot active"></span>

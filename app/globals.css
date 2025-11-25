@@ -471,10 +471,11 @@ select.form-input {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: -0.03em;
   animation: gradientShift 8s ease infinite;
   background-size: 200% 200%;
+  padding-bottom: 0.15em;
 }
 
 @keyframes gradientShift {
