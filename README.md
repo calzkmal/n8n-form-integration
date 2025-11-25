@@ -38,7 +38,7 @@ A modern, responsive dashboard for managing n8n workflows and automations. Built
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/calzkmal/sentomate
 cd n8n-form
 ```
 
