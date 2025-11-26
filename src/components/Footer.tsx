@@ -10,11 +10,11 @@ export default function Footer() {
     }, [])
 
     return (
-        <footer className="footer" style={{ marginTop: 'auto' }}>
+        <footer className="footer">
             {/* Brand Section */}
             <div className="footer-content">
                 <div className="footer-section">
-                    <div className="footer-logo" style={{ marginBottom: '1rem' }}>Sentomate</div>
+                    <div className="footer-logo">Sentomate</div>
                     <div className="footer-social">
                         <a href="https://github.com/calzkmal" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -33,14 +33,14 @@ export default function Footer() {
                             </svg>
                         </a>
                     </div>
-                    <div className="footer-bottom" style={{ textAlign: 'left', fontSize: '0.775rem' }}>
+                    <div className="footer-bottom">
                         <p>&copy; {year || '2025'} Sentomate. All rights reserved.</p>
                     </div>
                 </div>
 
                 <div className="footer-section">
-                    <h4 style={{ color: 'var(--text-primary)', marginBottom: '1rem', fontWeight: 600 }}>Documentation</h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
+                    <h4 className="footer-title">Documentation</h4>
+                    <div className="footer-links">
                         <a href="https://docs.n8n.io/" target="_blank" rel="noopener noreferrer" className="footer-link">
                             n8n Documentation
                         </a>

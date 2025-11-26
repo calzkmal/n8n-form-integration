@@ -68,13 +68,13 @@ export default function NewsScraperForm() {
     }
 
     return (
-        <div className="glass-card" style={{ padding: '2rem' }}>
+        <div className="glass-card">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="country" className="form-label">
                         Country (2-letter code)
                     </label>
-                    <div style={{ position: 'relative' }}>
+                    <div className='dropdown'>
                         <select
                             id="country"
                             name="country"
@@ -83,9 +83,7 @@ export default function NewsScraperForm() {
                             onChange={handleChange}
                             onFocus={() => setIsCountryOpen(true)}
                             onBlur={() => setIsCountryOpen(false)}
-                            disabled={isSubmitting || !!formData.sources}
-                            style={{ paddingRight: '2.5rem' }}
-                        >
+                            disabled={isSubmitting || !!formData.sources}>
                             <option value="">Select country (optional)</option>
                             <option value="us">United States (us)</option>
                             <option value="gb">United Kingdom (gb)</option>
@@ -96,18 +94,11 @@ export default function NewsScraperForm() {
                             <option value="jp">Japan (jp)</option>
                             <option value="in">India (in)</option>
                         </select>
-                        <span style={{
-                            position: 'absolute',
-                            right: '1rem',
-                            top: '50%',
-                            transform: `translateY(-50%) rotate(${isCountryOpen ? '180deg' : '0deg'})`,
-                            transition: 'transform 0.3s ease',
-                            pointerEvents: 'none',
-                            color: 'var(--text-secondary)',
-                            fontSize: '0.875rem'
-                        }}>▼</span>
+                        <span className={`dropdown-toggle ${isCountryOpen ? 'open' : ''}`}>
+                            ▼
+                        </span>
                     </div>
-                    <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
+                    <small className="form-description">
                         Note: Cannot be used with sources parameter
                     </small>
                 </div>
@@ -116,7 +107,7 @@ export default function NewsScraperForm() {
                     <label htmlFor="category" className="form-label">
                         Category
                     </label>
-                    <div style={{ position: 'relative' }}>
+                    <div className="dropdown">
                         <select
                             id="category"
                             name="category"
@@ -125,9 +116,7 @@ export default function NewsScraperForm() {
                             onChange={handleChange}
                             onFocus={() => setIsCategoryOpen(true)}
                             onBlur={() => setIsCategoryOpen(false)}
-                            disabled={isSubmitting || !!formData.sources}
-                            style={{ paddingRight: '2.5rem' }}
-                        >
+                            disabled={isSubmitting || !!formData.sources}>
                             <option value="">Select category (optional)</option>
                             <option value="business">Business</option>
                             <option value="entertainment">Entertainment</option>
@@ -137,18 +126,9 @@ export default function NewsScraperForm() {
                             <option value="sports">Sports</option>
                             <option value="technology">Technology</option>
                         </select>
-                        <span style={{
-                            position: 'absolute',
-                            right: '1rem',
-                            top: '50%',
-                            transform: `translateY(-50%) rotate(${isCategoryOpen ? '180deg' : '0deg'})`,
-                            transition: 'transform 0.3s ease',
-                            pointerEvents: 'none',
-                            color: 'var(--text-secondary)',
-                            fontSize: '0.875rem'
-                        }}>▼</span>
+                        <span className="dropdown-toggle">▼</span>
                     </div>
-                    <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
+                    <small className="form-description">
                         Note: Cannot be used with sources parameter
                     </small>
                 </div>
@@ -165,9 +145,8 @@ export default function NewsScraperForm() {
                         value={formData.sources}
                         onChange={handleChange}
                         placeholder="e.g., bbc-news,cnn,techcrunch"
-                        disabled={isSubmitting || !!formData.country || !!formData.category}
-                    />
-                    <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
+                        disabled={isSubmitting || !!formData.country || !!formData.category}/>
+                    <small className="form-description">
                         Comma-separated source identifiers. Cannot be used with country/category
                     </small>
                 </div>
@@ -184,9 +163,8 @@ export default function NewsScraperForm() {
                         value={formData.keywords}
                         onChange={handleChange}
                         placeholder="Enter keywords or phrase"
-                        disabled={isSubmitting}
-                    />
-                    <small style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', marginTop: '0.25rem', display: 'block' }}>
+                        disabled={isSubmitting}/>
+                    <small className="form-description">
                         Optional: Search for specific keywords or phrases
                     </small>
                 </div>
@@ -195,8 +173,7 @@ export default function NewsScraperForm() {
                     type="submit"
                     className="btn btn-primary"
                     disabled={isSubmitting}
-                    style={{ width: '100%' }}
-                >
+                    style={{ width: '100%' }}>
                     {isSubmitting && <span className="spinner" />}
                     {isSubmitting ? 'Scraping...' : 'Start News Scraper'}
                 </button>
@@ -209,16 +186,14 @@ export default function NewsScraperForm() {
                     </div>
                     <div className="response-content">
                         {response.error ? (
-                            <>
+                            <div className="error-block">
                                 <div>{response.error}</div>
-                                {response.details && <div style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{response.details}</div>}
-                            </>
+                                {response.details && (
+                                    <div className="error-details">{response.details}</div>
+                                )}
+                            </div>
                         ) : (
-                            <>
-                                <div>
-                                    {response.data?.message || response.message}
-                                </div>
-                            </>
+                            <div>{response.data?.message || response.message}</div>
                         )}
                     </div>
                 </div>

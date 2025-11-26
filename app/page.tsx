@@ -32,7 +32,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <div className="parallax-container" style={{ paddingTop: '80px', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <div className="parallax-container">
                 {/* Parallax Background */}
                 <div className="parallax-bg">
                     <div className="parallax-shape"></div>
@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
 
                 {/* Hero Section */}
-                <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+                <section className="hero-section">
                     <div className="hero-content">
                         <div className="hero-badge">
                             <span className="status-dot active"></span>
@@ -59,100 +59,30 @@ export default function Home() {
 
                         <div className="hero-grid">
                             {/* Form Submission Card */}
-                            <Link href="/form-submission" style={{ textDecoration: 'none' }}>
-                                <div className="glass-card" style={{
-                                    padding: '2rem',
-                                    height: '100%',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-start',
-                                    textAlign: 'left'
-                                }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.transform = 'translateY(-5px)'
-                                        e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)'
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.transform = 'translateY(0)'
-                                        e.currentTarget.style.boxShadow = 'none'
-                                    }}
-                                >
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        borderRadius: '12px',
-                                        background: 'linear-gradient(135deg, var(--primary-500), var(--accent-light))',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        marginBottom: '1.5rem',
-                                        fontSize: '1.5rem'
-                                    }}>
+                            <Link className="link" href="/form-submission">
+                                <div className="glass-card">
+                                    <div className="card-icon primary">
                                         📝
                                     </div>
-                                    <h3 style={{
-                                        fontSize: '1.5rem',
-                                        fontWeight: 600,
-                                        marginBottom: '0.75rem',
-                                        color: 'var(--text-primary)'
-                                    }}>Form Submission</h3>
-                                    <p style={{
-                                        color: 'var(--text-secondary)',
-                                        lineHeight: 1.6,
-                                        margin: 0
-                                    }}>
+                                    <h3 className="card-title">
+                                        Form Submission
+                                    </h3>
+                                    <p className="card-text">
                                         Submit data directly to your n8n workflows. Test webhooks and data processing in real-time.
                                     </p>
                                 </div>
                             </Link>
 
                             {/* News Scraper Card */}
-                            <Link href="/news-scraper" style={{ textDecoration: 'none' }}>
-                                <div className="glass-card" style={{
-                                    padding: '2rem',
-                                    height: '100%',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-start',
-                                    textAlign: 'left'
-                                }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.transform = 'translateY(-5px)'
-                                        e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)'
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.transform = 'translateY(0)'
-                                        e.currentTarget.style.boxShadow = 'none'
-                                    }}
-                                >
-                                    <div style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        borderRadius: '12px',
-                                        background: 'linear-gradient(135deg, #10b981, #34d399)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        marginBottom: '1.5rem',
-                                        fontSize: '1.5rem'
-                                    }}>
+                            <Link className="link" href="/news-scraper">
+                                <div className="glass-card">
+                                    <div className="card-icon secondary">
                                         📰
                                     </div>
-                                    <h3 style={{
-                                        fontSize: '1.5rem',
-                                        fontWeight: 600,
-                                        marginBottom: '0.75rem',
-                                        color: 'var(--text-primary)'
-                                    }}>News Scraper</h3>
-                                    <p style={{
-                                        color: 'var(--text-secondary)',
-                                        lineHeight: 1.6,
-                                        margin: 0
-                                    }}>
+                                    <h3 className="card-title">
+                                        News Scraper
+                                    </h3>
+                                    <p className="card-text">
                                         Configure and control your news scraper bot. Select countries, categories, or search for specific topics.
                                     </p>
                                 </div>

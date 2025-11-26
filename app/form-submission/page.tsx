@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import FormComponent from '@/src/components/FormComponent'
+import FormComponent from '@/src/components/MessageForm'
 import Navbar from '@/src/components/Navbar'
 import WorkflowStatusBadge from '@/src/components/WorkflowStatusBadge'
 
@@ -53,7 +53,7 @@ export default function FormPage() {
     return (
         <>
             <Navbar />
-            <div className="parallax-container" style={{ paddingTop: '80px', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <div className="parallax-container">
                 {/* Parallax Background */}
                 <div className="parallax-bg">
                     <div className="parallax-shape"></div>

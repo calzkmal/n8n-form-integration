@@ -62,7 +62,7 @@ export default function FormComponent() {
     }
 
     return (
-        <div className="glass-card" style={{ padding: '2rem' }}>
+        <div className="glass-card">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name" className="form-label">
@@ -115,16 +115,14 @@ export default function FormComponent() {
                     </div>
                     <div className="response-content">
                         {response.error ? (
-                            <>
+                            <div className="error-block">
                                 <div>{response.error}</div>
-                                {response.details && <div style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>{response.details}</div>}
-                            </>
+                                {response.details && (
+                                    <div className="error-details">{response.details}</div>
+                                )}
+                            </div>
                         ) : (
-                            <>
-                                <div>
-                                    {response.data?.message || response.message}
-                                </div>
-                            </>
+                            <div>{response.data?.message || response.message}</div>
                         )}
                     </div>
                 </div>

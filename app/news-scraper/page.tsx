@@ -52,7 +52,7 @@ export default function NewsScraperPage() {
     return (
         <>
             <Navbar />
-            <div className="parallax-container" style={{ paddingTop: '80px', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <div className="parallax-container">
                 {/* Parallax Background */}
                 <div className="parallax-bg">
                     <div className="parallax-shape"></div>
