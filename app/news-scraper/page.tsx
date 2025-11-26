@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import NewsScraperForm from '@/components/NewsScraperForm'
-import Navbar from '@/components/Navbar'
-import WorkflowStatusBadge from '@/components/WorkflowStatusBadge'
+import NewsScraperForm from '@/src/components/NewsScraperForm'
+import Navbar from '@/src/components/Navbar'
+import WorkflowStatusBadge from '@/src/components/WorkflowStatusBadge'
 
-import Footer from '@/components/Footer'
+import Footer from '@/src/components/Footer'
 
 export default function NewsScraperPage() {
     const [year, setYear] = useState('')

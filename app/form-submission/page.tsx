@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import FormComponent from '@/components/FormComponent'
-import Navbar from '@/components/Navbar'
-import WorkflowStatusBadge from '@/components/WorkflowStatusBadge'
+import FormComponent from '@/src/components/FormComponent'
+import Navbar from '@/src/components/Navbar'
+import WorkflowStatusBadge from '@/src/components/WorkflowStatusBadge'
 
-import Footer from '@/components/Footer'
+import Footer from '@/src/components/Footer'
 
 export default function FormPage() {
     const [year, setYear] = useState('')
